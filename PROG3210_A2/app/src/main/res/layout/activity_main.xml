@@ -24,32 +24,47 @@
 
     <Button
         android:id="@+id/start"
+        android:layout_marginTop="50dp"
+        android:textColor="#FFFFFF"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:background="@drawable/buttonshape"
         android:text="@string/start" />
 
     <Button
         android:id="@+id/scoreboard"
+        android:layout_marginTop="50dp"
+        android:textColor="#FFFFFF"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:background="@drawable/buttonshape"
         android:text="@string/scoreboard" />
 
     <Button
         android:id="@+id/player1"
+        android:layout_marginTop="50dp"
+        android:textColor="#FFFFFF"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:background="@drawable/buttonshape"
         android:text="@string/player1" />
 
     <Button
         android:id="@+id/player2"
+        android:layout_marginTop="50dp"
+        android:textColor="#FFFFFF"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:background="@drawable/buttonshape"
         android:text="@string/player2" />
 
     <Button
         android:id="@+id/add_player"
+        android:layout_marginTop="50dp"
+        android:textColor="#FFFFFF"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:background="@drawable/buttonshape"
         android:text="@string/add_player" />
 
 
