@@ -1,3 +1,16 @@
+<!--
+  FileName: strings.xml
+  Purpose: String resources file
+  Revision History
+   		Steven Bulgin, 2016.11.06: Added values for A2
+-->
 <resources>
     <string name="app_name">PROG3210_A2</string>
+
+    <!-- String Values for A2 -->
+    <string name="start">Start Game</string>
+    <string name="scoreboard">View Scoreboard</string>
+    <string name="player1">Player 1</string>
+    <string name="player2">Player 2</string>
+    <string name="add_player">Add Player</string>
 </resources>
