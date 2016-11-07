@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  FileName: activity_main.xml
+  Purpose: layout-land for A2
+  Revision History
+           Steven Bulgin, 2016.11.07: Fixed fill_parents to match_parents
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,13 +20,13 @@
     <Button
         android:id="@+id/start"
         android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:text="@string/start" />
 
     <Button
         android:id="@+id/scoreboard"
         android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:text="@string/scoreboard" />
 
     

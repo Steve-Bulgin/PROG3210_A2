@@ -1,3 +1,9 @@
+<!--
+  FileName: styles.xml
+  Purpose: Holds style resources for A2
+  Revision History
+   		Steven Bulgin, 2016.11.07: Gave a black theme to the whole app
+-->
 <resources>
 
 <!-- Base application theme. -->
