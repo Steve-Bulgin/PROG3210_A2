@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  FileName: AndroidManifest.xml
+  Purpose: Purpose
+  Revision History
+           Steven Bulgin, 2016.11.09: Added activities for the various views of the app
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.github.steve_bulgin.prog3210_a2">
 
@@ -14,6 +20,26 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="io.github.steve_bulgin.prog3210_a2.GameActivity"
+             >
+        </activity>
+        <activity
+            android:name="io.github.steve_bulgin.prog3210_a2.AddPlayerActivity"
+            >
+        </activity>
+        <activity
+            android:name="io.github.steve_bulgin.prog3210_a2.PlayerOneActivity"
+            >
+        </activity>
+        <activity
+            android:name="io.github.steve_bulgin.prog3210_a2.PlayerTwoActivity"
+            >
+        </activity>
+        <activity
+            android:name="io.github.steve_bulgin.prog3210_a2.ScoreBoardActivity"
+            >
         </activity>
     </application>
 

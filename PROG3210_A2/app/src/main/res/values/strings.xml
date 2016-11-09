@@ -3,14 +3,22 @@
   Purpose: String resources file
   Revision History
    		Steven Bulgin, 2016.11.06: Added values for A2
+   		Steven Bulgin, 2016.11.09: Added in some placeholder values to test other views
 -->
 <resources>
     <string name="app_name">PROG3210_A2</string>
 
-    <!-- String Values for A2 -->
+    <!-- String Values for A2  Main-->
     <string name="start">Start Game</string>
     <string name="scoreboard">View Scoreboard</string>
     <string name="player1">Player 1</string>
     <string name="player2">Player 2</string>
     <string name="add_player">Add Player</string>
+
+    <!-- String Values for Game layout -->
+    <string name="str_addplayer">Add View</string>
+    <string name="str_game">Game View</string>
+    <string name="str_player1">Player 1</string>
+    <string name="str_player2">Player 2</string>
+    <string name="str_scoreboard">Scoreboard</string>
 </resources>
