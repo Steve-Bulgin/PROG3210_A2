@@ -2,6 +2,7 @@
  * Purpose: Handles MainActivity on app load
  * Revision History
  * 		Steven Bulgin, 2016.11.09: Added click events for buttons
+ *      Steven Bulgin, 2016.11.12: Call PlayerdB in on create for testing
  */
 
 package io.github.steve_bulgin.prog3210_a2;
@@ -19,11 +20,15 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
 
     //Variables
     private Button btnStartGame, btnScoreBoard, btnPlayerOne, btnPlayerTwo, btnPlayerNew;
+    PlayerDB database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //DB create
+        database = new PlayerDB(this);
 
         //Creating all the button events
         btnStartGame = (Button) findViewById(R.id.start);
