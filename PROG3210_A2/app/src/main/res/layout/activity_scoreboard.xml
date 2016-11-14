@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:textColor="#FFFFFF"
-        android:text="@string/str_scoreboard" />
+        android:text="@string/str_scoreboard"
+        android:id="@+id/textView" />
 
 </RelativeLayout>
