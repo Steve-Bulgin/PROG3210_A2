@@ -12,5 +12,5 @@ Things to do
 - Center action bar title
 - Get on with the logic
 
-![screencap](/screenscaps/main.png)
+![screencap](/screencaps/main.png)
 
