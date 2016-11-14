@@ -11,3 +11,6 @@ Things to do
 - Grey the buttons
 - Center action bar title
 - Get on with the logic
+
+![screencap](/screenscaps/main.png)
+
