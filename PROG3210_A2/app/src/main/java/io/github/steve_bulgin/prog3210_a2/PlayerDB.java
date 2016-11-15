@@ -12,12 +12,17 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class PlayerDB extends SQLiteOpenHelper {
     public static final String DB_NAME = "playerlist.db";
 
+        private SQLiteDatabase db;
+
         public PlayerDB(Context context) {
             super(context, DB_NAME, null, 1);
-            SQLiteDatabase db = this.getWritableDatabase();
+            db = this.getWritableDatabase();
         }
 
         @Override
@@ -38,4 +43,25 @@ public class PlayerDB extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS tbl_players");
             onCreate(db);
         }
+
+    ArrayList<HashMap<String, String>> getPlayers(){
+        ArrayList<HashMap<String, String>> results =
+                new ArrayList<HashMap<String, String>>();
+        db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT l_name,f_name, wins, losses, ties FROM players",null );
+        while (cursor.moveToNext()) {
+            HashMap<String, String> map = new HashMap<String, String>();
+            map.put("l_name", cursor.getString(0));
+            map.put("f_name", cursor.getString(1));
+            map.put("wins", cursor.getString(2));
+            map.put("losses", cursor.getString(3));
+            map.put("ties", cursor.getString(4));
+            results.add(map);
+        }
+        if (cursor != null)
+            cursor.close();
+        db.close();
+
+        return results;
+    }
     }
