@@ -16,4 +16,11 @@
         android:text="@string/str_scoreboard"
         android:id="@+id/textView" />
 
+    <ListView
+        android:id="@+id/scoreboard_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="56dp"
+        android:clipToPadding="false" />
+
 </RelativeLayout>
