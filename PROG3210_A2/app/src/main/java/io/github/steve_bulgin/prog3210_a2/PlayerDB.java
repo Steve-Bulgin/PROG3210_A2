@@ -3,6 +3,8 @@
  * Revision History
  *         Steven Bulgin, 2016.11.12: Created
  *         Steven Bulgin, 2016.11.12: Have db creating, added some dummy data for testing
+ *         Steven Bulgin, 2016.11.17: Removed not null constraint on f_name for testing
+ *         Steven Bulgin, 2016.11.17: Insert works. Update to accept f_name and l_name
  */
 
 package io.github.steve_bulgin.prog3210_a2;
@@ -32,7 +34,7 @@ public class PlayerDB {
         public void onCreate(SQLiteDatabase db) {
             // create tables
             db.execSQL("CREATE TABLE tbl_players (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
-                    " l_name VARCHAR NOT NULL, f_name VARCHAR NOT NULL, wins INTEGER NOT NULL DEFAULT 0, " +
+                    " l_name VARCHAR NOT NULL, f_name VARCHAR, wins INTEGER NOT NULL DEFAULT 0, " +
                     " losses INTEGER NOT NULL  DEFAULT 0, ties INTEGER NOT NULL  DEFAULT 0)");
 
             //dummy data
@@ -99,12 +101,12 @@ public class PlayerDB {
         return data;
     }
 
-    void insertPlayer(String sName)throws Exception{
+    void insertPlayer(String name)throws Exception{
 
         openWriteableDB();
         ContentValues content = new ContentValues();
-        content.put("name", sName);
-        long nResult = db.insert("players",null, content);
+        content.put("l_name", name);
+        long nResult = db.insert("tbl_players",null, content);
         if(nResult == -1) throw new Exception("no data");
         closeDB();
     }

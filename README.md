@@ -8,9 +8,17 @@ Added horizontal and vertical layouts
 
 Things to do
 
-- Grey the buttons
+- ~~Grey the buttons~~
 - Center action bar title
 - Get on with the logic
+
+2016.11.18
+
+- Finish insert
+- Add last name field to player add
+- Finish player list
+- Make player list items clickable
+- Set up game view
 
 ![screencap](/screencaps/main.png)
 
