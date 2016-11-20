@@ -21,7 +21,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
     PlayerDB db;
     private TextView txtPlayer1, txtPlayer2;
     //dummy
-    private String name = "Thole";
+    private String name1 = "Thole";
     private String name2 = "Travis";
 
 
@@ -38,7 +38,10 @@ public class GameActivity extends Activity implements View.OnClickListener {
         btnTie = (Button) findViewById(R.id.btnTie);
 
         txtPlayer1 = (TextView) findViewById(R.id.txtPlayer1);
-        txtPlayer1.setText("Player 1: " + getIntent().getExtras().getString("Test"));
+        txtPlayer1.setText("Player 1: " + getIntent().getExtras().getString("P1_full_name"));
+
+        txtPlayer2 = (TextView) findViewById(R.id.txtPlayer2);
+        txtPlayer2.setText("Player 2: " + getIntent().getExtras().getString("P2_full_name"));
 
         //Add on the click listeners
         btnP1Wins.setOnClickListener(this);
@@ -49,17 +52,23 @@ public class GameActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+
+        name1 = getIntent().getExtras().getString("P1_l_name");
+        name2 = getIntent().getExtras().getString("P2_l_name");
+
         switch (v.getId()) {
             case R.id.btnP1Wins:
-                db.playerOneWins(name, name2);
-                Toast.makeText(getApplicationContext(), "Player 1 Wins", Toast.LENGTH_SHORT).show();
+                db.playerOneWins(name1, name2);
+                Toast.makeText(getApplicationContext(), getIntent().getExtras().getString("P1_full_name") + " Wins! " + getIntent().getExtras().getString("P2_full_name") + " Loses!", Toast.LENGTH_SHORT).show();
                 //startActivity(new Intent(getApplicationContext(), GameActivity.class));
                 break;
             case R.id.btnP2Wins:
-                Toast.makeText(getApplicationContext(), "Player 2 Wins", Toast.LENGTH_SHORT).show();
+                db.playerTwoWins(name1, name2);
+                Toast.makeText(getApplicationContext(), getIntent().getExtras().getString("P2_full_name") + " Wins! " + getIntent().getExtras().getString("P1_full_name") + " Loses!", Toast.LENGTH_SHORT).show();
                 //startActivity(new Intent(getApplicationContext(), ScoreBoardActivity.class));
                 break;
             case R.id.btnTie:
+                db.playersTie(name1, name2);
                 Toast.makeText(getApplicationContext(), "Tie game", Toast.LENGTH_SHORT).show();
                 //startActivity(new Intent(getApplicationContext(), PlayerOneActivity.class));
                 break;

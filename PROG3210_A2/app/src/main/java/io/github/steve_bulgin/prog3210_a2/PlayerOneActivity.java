@@ -42,11 +42,11 @@ public class PlayerOneActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 HashMap items = (HashMap) player_one_items.getItemAtPosition(position);
-                //HashMap map = items.get(0);
-                Intent intent = new Intent(view.getContext(), GameActivity.class);
-                //intent.putExtra(item.keySet().toString(),item.values().toString());
-                Toast.makeText(getApplicationContext(), items.get("full_name").toString(), Toast.LENGTH_SHORT).show();
-                //startActivity(intent);
+                Intent p1_intent = new Intent(view.getContext(), PlayerTwoActivity.class);
+                p1_intent.putExtra("P1_full_name", items.get("full_name").toString());
+                p1_intent.putExtra("P1_l_name", items.get("l_name").toString());
+                //Toast.makeText(getApplicationContext(), items.get("full_name").toString(), Toast.LENGTH_SHORT).show();
+                startActivity(p1_intent);
             }
         });
 

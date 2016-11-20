@@ -29,14 +29,14 @@
         android:layout_marginBottom="200dp" />
 
     <TextView
-        android:text="Name"
+        android:text="Last"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnAddSubmit"
         android:layout_alignParentStart="true"
         android:layout_marginStart="44dp"
         android:layout_marginBottom="37dp"
-        android:id="@+id/lblName"
+        android:id="@+id/lblLast"
         android:textColor="#FFFFFF" />
 
     <EditText
@@ -46,11 +46,33 @@
         android:text="Name"
         android:ems="10"
         android:layout_marginStart="15dp"
-        android:id="@+id/txtName"
+        android:id="@+id/txtLName"
         android:textColor="#000000"
         android:background="#FFFFFF"
-        android:layout_alignTop="@+id/lblName"
-        android:layout_toEndOf="@+id/lblName" />
+        android:layout_alignTop="@+id/lblLast"
+        android:layout_toEndOf="@+id/lblLast" />
+
+    <TextView
+        android:text="First"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblFirst"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/lblLast"
+        android:layout_toStartOf="@+id/txtLName" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:id="@+id/txtFName"
+        android:textColor="#000000"
+        android:background="#FFFFFF"
+        android:layout_alignBottom="@+id/lblFirst"
+        android:layout_alignStart="@+id/txtLName" />
 
 
 </RelativeLayout>

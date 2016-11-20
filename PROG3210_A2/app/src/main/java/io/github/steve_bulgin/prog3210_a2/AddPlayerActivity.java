@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class AddPlayerActivity extends Activity implements View.OnClickListener {
 
     //Variables
-    EditText txtName;
+    private EditText txtFName, txtLName;
     private Button btnAddSubmit;
     private PlayerDB db;
 
@@ -28,7 +28,8 @@ public class AddPlayerActivity extends Activity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addplayer);
 
-        txtName = (EditText) findViewById(R.id.txtName);
+        txtFName = (EditText) findViewById(R.id.txtFName);
+        txtLName = (EditText) findViewById(R.id.txtLName);
         btnAddSubmit = (Button) findViewById(R.id.btnAddSubmit);
 
         db = new PlayerDB(this);
@@ -40,11 +41,11 @@ public class AddPlayerActivity extends Activity implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btnAddSubmit) {
-            String new_name = txtName.getText().toString();
-            //Toast.makeText(getApplicationContext(), new_name, Toast.LENGTH_SHORT).show();
+            String f_name = txtFName.getText().toString();
+            String l_name = txtLName.getText().toString();
 
             try {
-                db.insertPlayer(new_name);
+                db.insertPlayer(f_name, l_name);
                 Toast.makeText(getApplicationContext(), "Insert made", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(), ScoreBoardActivity.class));
             } catch (Exception e) {

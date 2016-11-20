@@ -101,11 +101,12 @@ public class PlayerDB {
         return data;
     }
 
-    void insertPlayer(String name)throws Exception{
+    void insertPlayer(String f_name, String l_name)throws Exception{
 
         openWriteableDB();
         ContentValues content = new ContentValues();
-        content.put("l_name", name);
+        content.put("f_name", f_name);
+        content.put("l_name", l_name);
         long nResult = db.insert("tbl_players",null, content);
         if(nResult == -1) throw new Exception("no data");
         closeDB();
@@ -115,6 +116,19 @@ public class PlayerDB {
         openWriteableDB();
         db.execSQL("UPDATE tbl_players SET wins=wins+1 WHERE l_name='" + playerone + '\'');
         db.execSQL("UPDATE tbl_players SET losses=losses+1 WHERE l_name='" + playertwo + '\'');
+        closeDB();
+    }
+
+    void playerTwoWins(String playerone, String playertwo) {
+        openWriteableDB();
+        db.execSQL("UPDATE tbl_players SET wins=wins+1 WHERE l_name='" + playertwo + '\'');
+        db.execSQL("UPDATE tbl_players SET losses=losses+1 WHERE l_name='" + playerone + '\'');
+        closeDB();
+    }
+
+    void playersTie(String playerone, String playertwo) {
+        openWriteableDB();
+        db.execSQL("UPDATE tbl_players SET ties=ties+1 WHERE l_name='" + playerone + "' OR l_name='" + playertwo + "'");
         closeDB();
     }
 
