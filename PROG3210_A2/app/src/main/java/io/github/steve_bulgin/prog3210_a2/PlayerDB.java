@@ -111,4 +111,11 @@ public class PlayerDB {
         closeDB();
     }
 
+    void playerOneWins(String playerone, String playertwo) {
+        openWriteableDB();
+        db.execSQL("UPDATE tbl_players SET wins=wins+1 WHERE l_name='" + playerone + '\'');
+        db.execSQL("UPDATE tbl_players SET losses=losses+1 WHERE l_name='" + playertwo + '\'');
+        closeDB();
+    }
+
 }

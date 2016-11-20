@@ -13,12 +13,14 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:textColor="#FFFFFF"
-        android:text="@string/str_player1" />
+        android:text="@string/str_player1"
+        android:id="@+id/textView4" />
 
     <ListView
         android:id="@+id/player_one_items"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipToPadding="false" />
+        android:clipToPadding="false"
+        android:layout_below="@+id/textView4" />
 
 </RelativeLayout>
