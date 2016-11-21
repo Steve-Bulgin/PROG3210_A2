@@ -8,6 +8,7 @@
 package io.github.steve_bulgin.prog3210_a2;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,6 +28,8 @@ public class PlayerOneActivity extends Activity {
     //Variables
     private PlayerDB db;
     private ListView player_one_items;
+    private String fullname;
+    private HashMap items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,22 +37,23 @@ public class PlayerOneActivity extends Activity {
         setContentView(R.layout.activity_playerone);
 
         player_one_items = (ListView) findViewById(R.id.player_one_items);
-
         db = new PlayerDB(this);
         createList();
 
         player_one_items.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                HashMap items = (HashMap) player_one_items.getItemAtPosition(position);
-                Intent p1_intent = new Intent(view.getContext(), PlayerTwoActivity.class);
-                p1_intent.putExtra("P1_full_name", items.get("full_name").toString());
-                p1_intent.putExtra("P1_l_name", items.get("l_name").toString());
-                //Toast.makeText(getApplicationContext(), items.get("full_name").toString(), Toast.LENGTH_SHORT).show();
-                startActivity(p1_intent);
+                items = (HashMap) player_one_items.getItemAtPosition(position);
+                //Intent p1_intent = new Intent(view.getContext(), PlayerTwoActivity.class);
+                //p1_intent.putExtra("P1_full_name", items.get("full_name").toString());
+                //p1_intent.putExtra("P1_l_name", items.get("l_name").toString());
+                fullname = items.get("full_name").toString();
+                //((GameApplication) this.getApplication()).setFull_name_one(items.get("full_name").toString());
+
+                //startActivity(p1_intent);
+                namePasser();
             }
         });
-
     }
 
 
@@ -87,5 +91,13 @@ public class PlayerOneActivity extends Activity {
 
         SimpleAdapter ad = new SimpleAdapter(this, fullname,resource,from,to);
         player_one_items.setAdapter(ad);
+    }
+
+    private void namePasser() {
+        if (items!=null){
+            ((GameApplication) this.getApplication()).setFull_name_one(items.get("full_name").toString());
+            ((GameApplication) this.getApplication()).setL_name_one(items.get("l_name").toString());
+            Toast.makeText(getApplicationContext(),((GameApplication) this.getApplication()).getFull_name_one(), Toast.LENGTH_SHORT).show();
+        }
     }
 }

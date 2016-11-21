@@ -23,6 +23,8 @@ public class GameActivity extends Activity implements View.OnClickListener {
     //dummy
     private String name1 = "Thole";
     private String name2 = "Travis";
+    private boolean player1picked = false;
+    private boolean player2picked = false;
 
 
     @Override
@@ -38,10 +40,29 @@ public class GameActivity extends Activity implements View.OnClickListener {
         btnTie = (Button) findViewById(R.id.btnTie);
 
         txtPlayer1 = (TextView) findViewById(R.id.txtPlayer1);
-        txtPlayer1.setText("Player 1: " + getIntent().getExtras().getString("P1_full_name"));
+
+
+        if (((GameApplication) this.getApplication()).getFull_name_one()==null){
+            //txtPlayer1.setText("Player 1: " + ((GameApplication) this.getApplication()).getFull_name_one());
+            txtPlayer1.setText("Player 1: Not Selected");
+        }
+        else {
+            txtPlayer1.setText("Player 1: " + ((GameApplication) this.getApplication()).getFull_name_one());
+            player1picked=true;
+        }
 
         txtPlayer2 = (TextView) findViewById(R.id.txtPlayer2);
-        txtPlayer2.setText("Player 2: " + getIntent().getExtras().getString("P2_full_name"));
+
+        if (((GameApplication) this.getApplication()).getFull_name_two() == null){
+            txtPlayer2.setText("Player 2: Not Selected");
+        }
+        else {
+            txtPlayer2.setText("Player 2: " + ((GameApplication) this.getApplication()).getFull_name_two());
+            player2picked=true;
+        }
+
+
+
 
         //Add on the click listeners
         btnP1Wins.setOnClickListener(this);
@@ -53,25 +74,47 @@ public class GameActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        name1 = getIntent().getExtras().getString("P1_l_name");
-        name2 = getIntent().getExtras().getString("P2_l_name");
+        name1 = ((GameApplication) this.getApplication()).getL_name_one();
+        name2 = ((GameApplication) this.getApplication()).getL_name_two();
 
         switch (v.getId()) {
             case R.id.btnP1Wins:
-                db.playerOneWins(name1, name2);
-                Toast.makeText(getApplicationContext(), getIntent().getExtras().getString("P1_full_name") + " Wins! " + getIntent().getExtras().getString("P2_full_name") + " Loses!", Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(getApplicationContext(), GameActivity.class));
+                if (player1picked && player2picked) {
+                    db.playerOneWins(name1, name2);
+                    Toast.makeText(getApplicationContext(), ((GameApplication) this.getApplication()).getFull_name_one() + " Wins! " + ((GameApplication) this.getApplication()).getFull_name_two() + " Loses!", Toast.LENGTH_SHORT).show();
+                } else {
+                    playerCheck();
+                }
                 break;
             case R.id.btnP2Wins:
-                db.playerTwoWins(name1, name2);
-                Toast.makeText(getApplicationContext(), getIntent().getExtras().getString("P2_full_name") + " Wins! " + getIntent().getExtras().getString("P1_full_name") + " Loses!", Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(getApplicationContext(), ScoreBoardActivity.class));
+                if (player1picked && player2picked) {
+                    db.playerTwoWins(name1, name2);
+                    //Toast.makeText(getApplicationContext(), getIntent().getExtras().getString("P2_full_name") + " Wins! " + getIntent().getExtras().getString("P1_full_name") + " Loses!", Toast.LENGTH_SHORT).show();
+                } else {
+                    playerCheck();
+                }
                 break;
             case R.id.btnTie:
-                db.playersTie(name1, name2);
-                Toast.makeText(getApplicationContext(), "Tie game", Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(getApplicationContext(), PlayerOneActivity.class));
+                if (player1picked && player2picked) {
+                    db.playersTie(name1, name2);
+                    Toast.makeText(getApplicationContext(), "Tie game", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    playerCheck();
+                }
                 break;
+        }
+    }
+
+    private void playerCheck() {
+        if (!player1picked && !player2picked) {
+            Toast.makeText(getApplicationContext(), "Please Pick a set of players", Toast.LENGTH_LONG).show();
+        }
+        if (!player1picked) {
+            Toast.makeText(getApplicationContext(), "Please Pick a Player 1", Toast.LENGTH_LONG).show();
+        }
+        if (!player2picked) {
+            Toast.makeText(getApplicationContext(), "Please Pick a Player 2", Toast.LENGTH_LONG).show();
         }
     }
 }

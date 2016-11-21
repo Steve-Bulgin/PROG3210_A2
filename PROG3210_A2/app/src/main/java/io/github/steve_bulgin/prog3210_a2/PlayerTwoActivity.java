@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +23,7 @@ public class PlayerTwoActivity extends Activity {
     //Variables
     private PlayerDB db;
     private ListView player_two_items;
+    private HashMap items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,20 +35,14 @@ public class PlayerTwoActivity extends Activity {
         db = new PlayerDB(this);
         createList();
 
+
         player_two_items.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                HashMap items = (HashMap) player_two_items.getItemAtPosition(position);
-                Intent p2_intent = new Intent(view.getContext(), GameActivity.class);
-                p2_intent.putExtra("P1_full_name", getIntent().getExtras().getString("P1_full_name"));
-                p2_intent.putExtra("P1_l_name", getIntent().getExtras().getString("P1_l_name"));
-                p2_intent.putExtra("P2_full_name", items.get("full_name").toString());
-                p2_intent.putExtra("P2_l_name", items.get("l_name").toString());
-                //Toast.makeText(getApplicationContext(), items.get("full_name").toString(), Toast.LENGTH_SHORT).show();
-                startActivity(p2_intent);
+                items = (HashMap) player_two_items.getItemAtPosition(position);
+                namePasser();
             }
         });
-
     }
 
 
@@ -85,4 +81,13 @@ public class PlayerTwoActivity extends Activity {
         SimpleAdapter ad = new SimpleAdapter(this, fullname,resource,from,to);
         player_two_items.setAdapter(ad);
     }
+
+    private void namePasser() {
+        if (items!=null){
+            ((GameApplication) this.getApplication()).setFull_name_two(items.get("full_name").toString());
+            ((GameApplication) this.getApplication()).setL_name_two(items.get("l_name").toString());
+            Toast.makeText(getApplicationContext(),((GameApplication) this.getApplication()).getFull_name_two(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

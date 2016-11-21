@@ -16,8 +16,58 @@
         android:text="@string/str_scoreboard"
         android:id="@+id/textView" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_weight="3"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/textView"
+        android:text="First Name"
+        android:id="@+id/lblsbFName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@+id/lblsbFName"
+        android:text="Last Name"
+        android:id="@+id/lblsbLName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@+id/lblsbLName"
+        android:text="Wins"
+        android:id="@+id/lblsbWins" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@+id/lblsbWins"
+        android:text="Loses"
+        android:id="@+id/lblsbLoses" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@+id/lblsbLoses"
+        android:text="Ties"
+        android:id="@+id/lblsbTies" />
+
     <ListView
         android:id="@+id/scoreboard_items"
+        android:layout_below="@+id/lblsbFName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="56dp"

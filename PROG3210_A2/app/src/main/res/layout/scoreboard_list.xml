@@ -11,20 +11,18 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:layout_gravity="center">
 
         <TextView
             android:id="@+id/lblFName"
             android:layout_width="wrap_content"
-            android:layout_weight="25"
-            android:layout_marginEnd="40dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-
-            android:text=""
+            android:textStyle="bold"
+            android:text="Bob"
             android:textColor="#FFFFFF"  />
 
         <TextView
@@ -33,8 +31,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_weight="50"
-            android:text=""
+            android:layout_weight="3"
+            android:textStyle="bold"
+            android:text="Jonejghjkhkjh"
             android:textColor="#FFFFFF" />
         <TextView
             android:id="@+id/lblWins"
@@ -42,7 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text=""
+            android:layout_weight="2"
+            android:textStyle="bold"
+            android:text="0"
             android:textColor="#FFFFFF"  />
         <TextView
             android:id="@+id/lblLoses"
@@ -50,7 +51,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text=""
+            android:layout_weight="2"
+            android:textStyle="bold"
+            android:text="0"
             android:textColor="#FFFFFF"  />
         <TextView
             android:id="@+id/lblTies"
@@ -58,7 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text=""
+            android:textStyle="bold"
+            android:text="0"
             android:textColor="#FFFFFF"  />
     </LinearLayout>
 </LinearLayout>
