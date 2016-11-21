@@ -36,5 +36,15 @@ Things to do
 - Figure out passing intents from p2 to 1 if p1 null
 
 
+# 2016.11.21 Handed in
+## Known bugs
+
+- Layout is a bit wonky (scoreboard layout)
+- Lets you select the same player as both
+
+### Otherwise good!!!!!
+
+
+
 ![screencap](/screencaps/main.png)
 
