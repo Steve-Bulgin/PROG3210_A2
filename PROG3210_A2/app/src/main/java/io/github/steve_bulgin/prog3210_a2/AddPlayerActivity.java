@@ -44,14 +44,18 @@ public class AddPlayerActivity extends Activity implements View.OnClickListener 
             String f_name = txtFName.getText().toString();
             String l_name = txtLName.getText().toString();
 
-            try {
-                db.insertPlayer(f_name, l_name);
-                Toast.makeText(getApplicationContext(), "Insert made", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), ScoreBoardActivity.class));
-            } catch (Exception e) {
-                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
-                e.printStackTrace();
+            if ((f_name != null && !f_name.isEmpty()) || (l_name != null && !l_name.isEmpty())) {
+
+                try {
+                    db.insertPlayer(f_name, l_name);
+                    Toast.makeText(getApplicationContext(), "Insert made", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), ScoreBoardActivity.class));
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
             }
+
         }
     }
 }

@@ -21,8 +21,8 @@ public class GameActivity extends Activity implements View.OnClickListener {
     PlayerDB db;
     private TextView txtPlayer1, txtPlayer2;
     //dummy
-    private String name1 = "Thole";
-    private String name2 = "Travis";
+    private String name1;
+    private String name2;
     private boolean player1picked = false;
     private boolean player2picked = false;
 
@@ -89,7 +89,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
             case R.id.btnP2Wins:
                 if (player1picked && player2picked) {
                     db.playerTwoWins(name1, name2);
-                    //Toast.makeText(getApplicationContext(), getIntent().getExtras().getString("P2_full_name") + " Wins! " + getIntent().getExtras().getString("P1_full_name") + " Loses!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), ((GameApplication) this.getApplication()).getFull_name_two() + " Wins! " + ((GameApplication) this.getApplication()).getFull_name_one() + " Loses!", Toast.LENGTH_SHORT).show();
                 } else {
                     playerCheck();
                 }
