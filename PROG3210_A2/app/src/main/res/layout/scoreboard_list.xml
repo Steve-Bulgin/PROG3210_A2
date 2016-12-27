@@ -8,19 +8,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="horizontal" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/lblFName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:padding="10dp"
             android:layout_weight="1"
+            android:layout_marginLeft="25dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:textStyle="bold"
             android:text="Bob"
             android:textColor="#FFFFFF"  />
@@ -29,36 +29,39 @@
             android:id="@+id/lblLName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
             android:textStyle="bold"
             android:text="Jonejghjkhkjh"
             android:textColor="#FFFFFF" />
         <TextView
             android:id="@+id/lblWins"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
             android:textStyle="bold"
             android:text="0"
             android:textColor="#FFFFFF"  />
         <TextView
             android:id="@+id/lblLoses"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
             android:textStyle="bold"
             android:text="0"
             android:textColor="#FFFFFF"  />
         <TextView
             android:id="@+id/lblTies"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
             android:textStyle="bold"
             android:text="0"
             android:textColor="#FFFFFF"  />

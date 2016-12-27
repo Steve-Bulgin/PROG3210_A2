@@ -8,7 +8,9 @@
 package io.github.steve_bulgin.prog3210_a2;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -95,9 +97,24 @@ public class PlayerOneActivity extends Activity {
 
     private void namePasser() {
         if (items!=null){
-            ((GameApplication) this.getApplication()).setFull_name_one(items.get("full_name").toString());
-            ((GameApplication) this.getApplication()).setL_name_one(items.get("l_name").toString());
-            Toast.makeText(getApplicationContext(),((GameApplication) this.getApplication()).getFull_name_one(), Toast.LENGTH_SHORT).show();
+
+            if (((GameApplication) this.getApplication()).getFull_name_two() != null && ((GameApplication) this.getApplication()).getFull_name_two().equals(items.get("full_name").toString())) {
+                AlertDialog alertDialog = new AlertDialog.Builder(PlayerOneActivity.this).create();
+                alertDialog.setTitle("Alert");
+                alertDialog.setMessage("Player One can not be the same as Player Two");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+            }
+            else {
+                ((GameApplication) this.getApplication()).setFull_name_one(items.get("full_name").toString());
+                ((GameApplication) this.getApplication()).setL_name_one(items.get("l_name").toString());
+                Toast.makeText(getApplicationContext(), ((GameApplication) this.getApplication()).getFull_name_one(), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

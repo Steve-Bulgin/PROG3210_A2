@@ -39,8 +39,15 @@ Things to do
 # 2016.11.21 Handed in
 ## Known bugs
 
-- Layout is a bit wonky (scoreboard layout)
-- Lets you select the same player as both
+- Check both first and lasts names on update
+- ~~Fix hint for Last Name txtbox on Add Player view~~
+- ~~Layout is a bit wonky (scoreboard layout)~~ Works, looks a lot better, but might want more work
+- ~~Lets you select the same player as both~~
+
+## Features to add
+
+- Swipe views
+
 
 ### Otherwise good!!!!!
 
