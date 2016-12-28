@@ -103,6 +103,7 @@ public class PlayerTwoActivity extends Activity {
 
                 ((GameApplication) this.getApplication()).setFull_name_two(items.get("full_name").toString());
                 ((GameApplication) this.getApplication()).setL_name_two(items.get("l_name").toString());
+                ((GameApplication) this.getApplication()).setF_name_two(items.get("f_name").toString());
                 Toast.makeText(getApplicationContext(), ((GameApplication) this.getApplication()).getFull_name_two(), Toast.LENGTH_SHORT).show();
             }
         }

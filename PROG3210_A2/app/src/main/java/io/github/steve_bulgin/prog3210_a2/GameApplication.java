@@ -8,8 +8,10 @@ public class GameApplication extends Application{
     //Global Variables
 
     private String full_name_one;
+    private String f_name_one;
     private String l_name_one;
     private String full_name_two;
+    private String f_name_two;
     private String l_name_two;
 
     //Getter Setters
@@ -22,6 +24,12 @@ public class GameApplication extends Application{
     public void setFull_name_one(String full_name_one){
         this.full_name_one=full_name_one;
     }
+
+    //First name 1
+
+    public String getF_name_one() { return this.f_name_one; }
+
+    public void setF_name_one(String f_name_one) { this.f_name_one=f_name_one; }
 
     //Lastname 1
     public String getL_name_one(){
@@ -41,6 +49,12 @@ public class GameApplication extends Application{
     public void setFull_name_two(String full_name_two){
         this.full_name_two=full_name_two;
     }
+
+    //First 2
+
+    public String getF_name_two() { return this.f_name_two; }
+
+    public void setF_name_two(String f_name_two) { this.f_name_two=f_name_two; }
 
     //Lastname 2
     public String getL_name_two(){

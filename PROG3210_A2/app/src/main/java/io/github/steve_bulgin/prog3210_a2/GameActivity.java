@@ -21,8 +21,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
     PlayerDB db;
     private TextView txtPlayer1, txtPlayer2;
     //dummy
-    private String name1;
-    private String name2;
+    private String p1last,p1first,p2last,p2first;
     private boolean player1picked = false;
     private boolean player2picked = false;
 
@@ -74,13 +73,15 @@ public class GameActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        name1 = ((GameApplication) this.getApplication()).getL_name_one();
-        name2 = ((GameApplication) this.getApplication()).getL_name_two();
+        p1last = ((GameApplication) this.getApplication()).getL_name_one();
+        p1first = ((GameApplication) this.getApplication()).getF_name_one();
+        p2last = ((GameApplication) this.getApplication()).getL_name_two();
+        p2first = ((GameApplication) this.getApplication()).getF_name_two();
 
         switch (v.getId()) {
             case R.id.btnP1Wins:
                 if (player1picked && player2picked) {
-                    db.playerOneWins(name1, name2);
+                    db.playerOneWins(p1first, p1last, p2first, p2last);
                     Toast.makeText(getApplicationContext(), ((GameApplication) this.getApplication()).getFull_name_one() + " Wins! " + ((GameApplication) this.getApplication()).getFull_name_two() + " Loses!", Toast.LENGTH_SHORT).show();
                 } else {
                     playerCheck();
@@ -88,7 +89,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btnP2Wins:
                 if (player1picked && player2picked) {
-                    db.playerTwoWins(name1, name2);
+                    db.playerTwoWins(p1first, p1last, p2first, p2last);
                     Toast.makeText(getApplicationContext(), ((GameApplication) this.getApplication()).getFull_name_two() + " Wins! " + ((GameApplication) this.getApplication()).getFull_name_one() + " Loses!", Toast.LENGTH_SHORT).show();
                 } else {
                     playerCheck();
@@ -96,7 +97,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btnTie:
                 if (player1picked && player2picked) {
-                    db.playersTie(name1, name2);
+                    db.playersTie(p1first, p1last, p2first, p2last);
                     Toast.makeText(getApplicationContext(), "Tie game", Toast.LENGTH_SHORT).show();
                 }
                 else {

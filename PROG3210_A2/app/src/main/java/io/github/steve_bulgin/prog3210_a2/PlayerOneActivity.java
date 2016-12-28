@@ -113,6 +113,7 @@ public class PlayerOneActivity extends Activity {
             else {
                 ((GameApplication) this.getApplication()).setFull_name_one(items.get("full_name").toString());
                 ((GameApplication) this.getApplication()).setL_name_one(items.get("l_name").toString());
+                ((GameApplication) this.getApplication()).setF_name_one(items.get("f_name").toString());
                 Toast.makeText(getApplicationContext(), ((GameApplication) this.getApplication()).getFull_name_one(), Toast.LENGTH_SHORT).show();
             }
         }

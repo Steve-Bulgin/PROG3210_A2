@@ -112,23 +112,23 @@ public class PlayerDB {
         closeDB();
     }
 
-    void playerOneWins(String playerone, String playertwo) {
+    void playerOneWins(String playerone_first, String playerone_last, String playertwo_first, String playertwo_last) {
         openWriteableDB();
-        db.execSQL("UPDATE tbl_players SET wins=wins+1 WHERE l_name='" + playerone + '\'');
-        db.execSQL("UPDATE tbl_players SET losses=losses+1 WHERE l_name='" + playertwo + '\'');
+        db.execSQL("UPDATE tbl_players SET wins=wins+1 WHERE l_name='" + playerone_last + "' AND f_name='" + playerone_first + '\'');
+        db.execSQL("UPDATE tbl_players SET losses=losses+1 WHERE l_name='" + playertwo_last + "' AND f_name='" + playertwo_first + '\'');
         closeDB();
     }
 
-    void playerTwoWins(String playerone, String playertwo) {
+    void playerTwoWins(String playerone_first, String playerone_last, String playertwo_first, String playertwo_last) {
         openWriteableDB();
-        db.execSQL("UPDATE tbl_players SET wins=wins+1 WHERE l_name='" + playertwo + '\'');
-        db.execSQL("UPDATE tbl_players SET losses=losses+1 WHERE l_name='" + playerone + '\'');
+        db.execSQL("UPDATE tbl_players SET wins=wins+1 WHERE l_name='" + playertwo_last + "' AND f_name='" + playertwo_first + '\'');
+        db.execSQL("UPDATE tbl_players SET losses=losses+1 WHERE l_name='" + playerone_last + "' AND f_name='" + playerone_first + '\'');
         closeDB();
     }
 
-    void playersTie(String playerone, String playertwo) {
+    void playersTie(String playerone_first, String playerone_last, String playertwo_first, String playertwo_last) {
         openWriteableDB();
-        db.execSQL("UPDATE tbl_players SET ties=ties+1 WHERE l_name='" + playerone + "' OR l_name='" + playertwo + "'");
+        db.execSQL("UPDATE tbl_players SET ties=ties+1 WHERE (l_name='" + playerone_last + "' AND f_name='" + playerone_first +"') OR (l_name='" + playertwo_last + "' AND f_name='" + playertwo_first + "')");
         closeDB();
     }
 

@@ -39,7 +39,8 @@ Things to do
 # 2016.11.21 Handed in
 ## Known bugs
 
-- Check both first and lasts names on update
+- ~~Check both first and lasts names on update~~
+- ~~Add Icon~~
 - ~~Fix hint for Last Name txtbox on Add Player view~~
 - ~~Layout is a bit wonky (scoreboard layout)~~ Works, looks a lot better, but might want more work
 - ~~Lets you select the same player as both~~
@@ -47,6 +48,7 @@ Things to do
 ## Features to add
 
 - Swipe views
+- Delete One/Add from db
 
 
 ### Otherwise good!!!!!
