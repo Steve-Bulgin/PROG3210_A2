@@ -45,10 +45,14 @@ Things to do
 - ~~Layout is a bit wonky (scoreboard layout)~~ Works, looks a lot better, but might want more work
 - ~~Lets you select the same player as both~~
 
+# 2017.01.01
+
+- Added Delete and updated Main
+
 ## Features to add
 
 - Swipe views
-- Delete One/Add from db
+- ~~Delete One/Add from db~~
 
 
 ### Otherwise good!!!!!

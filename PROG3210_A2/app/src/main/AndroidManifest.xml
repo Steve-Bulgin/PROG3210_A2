@@ -42,6 +42,10 @@
             android:name="io.github.steve_bulgin.prog3210_a2.ScoreBoardActivity"
             >
         </activity>
+        <activity
+            android:name="io.github.steve_bulgin.prog3210_a2.DeletePlayerActivity"
+            >
+        </activity>
     </application>
 
 </manifest>

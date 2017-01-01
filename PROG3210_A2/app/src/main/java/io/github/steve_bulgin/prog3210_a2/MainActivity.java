@@ -19,7 +19,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements TextView.OnEditorActionListener, View.OnClickListener {
 
     //Variables
-    private Button btnStartGame, btnScoreBoard, btnPlayerOne, btnPlayerTwo, btnPlayerNew;
+    private Button btnStartGame, btnScoreBoard, btnPlayerOne, btnPlayerTwo, btnPlayerNew, btnDeletePlayers;
     PlayerDB database;
 
     @Override
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         btnPlayerOne = (Button) findViewById(R.id.player1);
         btnPlayerTwo = (Button) findViewById(R.id.player2);
         btnPlayerNew = (Button) findViewById(R.id.add_player);
+        btnDeletePlayers = (Button) findViewById(R.id.delete_player);
 
         //Add on the click listeners
         btnStartGame.setOnClickListener(this);
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         btnPlayerOne.setOnClickListener(this);
         btnPlayerTwo.setOnClickListener(this);
         btnPlayerNew.setOnClickListener(this);
+        btnDeletePlayers.setOnClickListener(this);
     }
 
     @Override
@@ -68,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
                 //Toast.makeText(getApplicationContext(), "Add Player", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(), AddPlayerActivity.class));
                 break;
+            case R.id.delete_player:
+                startActivity(new Intent(getApplicationContext(), DeletePlayerActivity.class));
         }
     }
 

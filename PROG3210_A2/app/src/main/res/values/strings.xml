@@ -14,6 +14,7 @@
     <string name="player1">Player 1</string>
     <string name="player2">Player 2</string>
     <string name="add_player">Add Player</string>
+    <string name="delete_player">Delete Players</string>
 
     <!-- String Values for Game layout -->
     <string name="str_addplayer">Add View</string>

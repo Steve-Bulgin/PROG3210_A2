@@ -132,4 +132,16 @@ public class PlayerDB {
         closeDB();
     }
 
+    void deleteAll() {
+        openWriteableDB();
+        db.execSQL("DELETE FROM tbl_players");
+        closeDB();
+    }
+
+    void deleteOne(String playerone_first, String playerone_last) {
+        openWriteableDB();
+        db.execSQL("DELETE FROM tbl_players WHERE f_name='" + playerone_first + "' AND l_name='" + playerone_last + "'");
+        closeDB();
+    }
+
 }
