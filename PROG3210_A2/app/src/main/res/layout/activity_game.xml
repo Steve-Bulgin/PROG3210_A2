@@ -7,7 +7,12 @@
         Steven Bulgin, 2016.11.14: Added buttons and labels to match intended layout
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/gameview"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,6 +32,8 @@
         android:id="@+id/btnP2Wins"
         android:layout_marginBottom="113dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_alignParentStart="true" />
 
     <Button
@@ -38,6 +45,8 @@
         android:id="@+id/btnTie"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginBottom="28dp" />
 
     <Button
@@ -49,6 +58,8 @@
         android:id="@+id/btnP1Wins"
         android:layout_above="@+id/btnP2Wins"
         android:layout_alignParentStart="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginBottom="34dp" />
 
     <TextView

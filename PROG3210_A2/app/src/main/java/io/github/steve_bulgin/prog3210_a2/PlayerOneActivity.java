@@ -14,6 +14,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -29,30 +30,68 @@ public class PlayerOneActivity extends Activity {
 
     //Variables
     private PlayerDB db;
+    private View p1view;
     private ListView player_one_items;
     private String fullname;
     private HashMap items;
+    private float x1, x2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playerone);
 
+        p1view = findViewById(R.id.player1view);
+
         player_one_items = (ListView) findViewById(R.id.player_one_items);
         db = new PlayerDB(this);
         createList();
+
+        p1view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        x1 = event.getX();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        x2 = event.getX();
+                        if ((x1 - x2) < -150) {
+                            Intent intent = new Intent(PlayerOneActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                        break;
+                }
+                return false;
+            }
+        });
+
+        player_one_items.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        x1 = event.getX();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        x2 = event.getX();
+                        if ((x1 - x2) < -150) {
+                            Intent intent = new Intent(PlayerOneActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                        break;
+                }
+                return false;
+            }
+
+        });
 
         player_one_items.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 items = (HashMap) player_one_items.getItemAtPosition(position);
-                //Intent p1_intent = new Intent(view.getContext(), PlayerTwoActivity.class);
-                //p1_intent.putExtra("P1_full_name", items.get("full_name").toString());
-                //p1_intent.putExtra("P1_l_name", items.get("l_name").toString());
                 fullname = items.get("full_name").toString();
-                //((GameApplication) this.getApplication()).setFull_name_one(items.get("full_name").toString());
-
-                //startActivity(p1_intent);
                 namePasser();
             }
         });

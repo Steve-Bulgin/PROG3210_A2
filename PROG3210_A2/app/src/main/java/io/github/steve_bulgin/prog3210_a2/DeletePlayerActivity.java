@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -23,18 +24,62 @@ public class DeletePlayerActivity extends AppCompatActivity  {
     //Variables
 
     private ListView delete_player_items;
+    private View deleteview;
     private HashMap items;
     private PlayerDB db;
+    private float x1, x2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deleteplayer);
 
+        deleteview = findViewById(R.id.deleteview);
+
         delete_player_items = (ListView) findViewById(R.id.delete_player_items);
 
         db = new PlayerDB(this);
         createList();
+
+        deleteview.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        x1 = event.getX();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        x2 = event.getX();
+                        if ((x1 - x2) < -150) {
+                            Intent intent = new Intent(DeletePlayerActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                        break;
+                }
+                return false;
+            }
+        });
+
+        delete_player_items.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        x1 = event.getX();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        x2 = event.getX();
+                        if ((x1 - x2) < -150) {
+                            Intent intent = new Intent(DeletePlayerActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                        break;
+                }
+                return false;
+            }
+
+        });
 
 
         delete_player_items.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {

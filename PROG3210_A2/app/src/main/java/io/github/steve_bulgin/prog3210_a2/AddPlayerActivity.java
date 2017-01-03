@@ -10,6 +10,7 @@ package io.github.steve_bulgin.prog3210_a2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +20,9 @@ public class AddPlayerActivity extends Activity implements View.OnClickListener 
 
     //Variables
     private EditText txtFName, txtLName;
+    private View addview;
     private Button btnAddSubmit;
+    private float x1, x2;
     private PlayerDB db;
 
 
@@ -28,14 +31,92 @@ public class AddPlayerActivity extends Activity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addplayer);
 
+        addview = findViewById(R.id.addview);
+
         txtFName = (EditText) findViewById(R.id.txtFName);
         txtLName = (EditText) findViewById(R.id.txtLName);
         btnAddSubmit = (Button) findViewById(R.id.btnAddSubmit);
 
         db = new PlayerDB(this);
 
+        addview.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        x1 = event.getX();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        x2 = event.getX();
+                        if ((x1 - x2) < -150) {
+                            Intent intent = new Intent(AddPlayerActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                        break;
+                }
+                return false;
+            }
+        });
+
         //Click listener
         btnAddSubmit.setOnClickListener(this);
+
+        btnAddSubmit.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        x1 = event.getX();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        x2 = event.getX();
+                        if ((x1 - x2) < -150) {
+                            Intent intent = new Intent(AddPlayerActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                        break;
+                }
+                return false;
+            }
+        });
+
+        txtFName.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        x1 = event.getX();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        x2 = event.getX();
+                        if ((x1 - x2) < -150) {
+                            Intent intent = new Intent(AddPlayerActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                        break;
+                }
+                return false;
+            }
+        });
+
+        txtLName.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        x1 = event.getX();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        x2 = event.getX();
+                        if ((x1 - x2) < -150) {
+                            Intent intent = new Intent(AddPlayerActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                        break;
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -49,7 +130,9 @@ public class AddPlayerActivity extends Activity implements View.OnClickListener 
                 try {
                     db.insertPlayer(f_name, l_name);
                     Toast.makeText(getApplicationContext(), "Insert made", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), ScoreBoardActivity.class));
+                    Intent intent = new Intent(AddPlayerActivity.this, ScoreBoardActivity.class);
+                    intent.putExtra("sender","AddPlayerActivity");
+                    startActivity(intent);
                 } catch (Exception e) {
                     Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
                     e.printStackTrace();

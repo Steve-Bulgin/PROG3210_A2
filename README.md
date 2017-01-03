@@ -51,8 +51,9 @@ Things to do
 
 ## Features to add
 
-- Swipe views
+- ~~Swipe views~~
 - ~~Delete One/Add from db~~
+- Slide animation on swipe
 
 
 ### Otherwise good!!!!!

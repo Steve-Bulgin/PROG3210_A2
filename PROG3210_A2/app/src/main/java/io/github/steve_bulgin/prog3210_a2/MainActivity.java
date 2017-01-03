@@ -55,8 +55,9 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
                 startActivity(new Intent(getApplicationContext(), GameActivity.class));
                 break;
             case R.id.scoreboard:
-                //Toast.makeText(getApplicationContext(), "Scoreboard", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), ScoreBoardActivity.class));
+                Intent intent = new Intent(MainActivity.this, ScoreBoardActivity.class);
+                intent.putExtra("sender","MainActivity");
+                startActivity(intent);
                 break;
             case R.id.player1:
                 //Toast.makeText(getApplicationContext(), "Player 1", Toast.LENGTH_SHORT).show();

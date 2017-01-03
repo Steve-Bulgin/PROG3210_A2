@@ -12,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -23,6 +24,8 @@ import java.util.HashMap;
 
 public class PlayerTwoActivity extends Activity {
     //Variables
+    private View p2view;
+    private Float x1,x2;
     private PlayerDB db;
     private ListView player_two_items;
     private HashMap items;
@@ -32,11 +35,52 @@ public class PlayerTwoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playertwo);
 
+        p2view = findViewById(R.id.p2view);
+
         player_two_items = (ListView) findViewById(R.id.player_two_items);
 
         db = new PlayerDB(this);
         createList();
 
+        p2view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        x1 = event.getX();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        x2 = event.getX();
+                        if ((x1 - x2) < -150) {
+                            Intent intent = new Intent(PlayerTwoActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                        break;
+                }
+                return false;
+            }
+        });
+
+        player_two_items.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        x1 = event.getX();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        x2 = event.getX();
+                        if ((x1 - x2) < -150) {
+                            Intent intent = new Intent(PlayerTwoActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                        break;
+                }
+                return false;
+            }
+
+        });
 
         player_two_items.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
             @Override
@@ -57,10 +101,6 @@ public class PlayerTwoActivity extends Activity {
         String l_name;
         String full_name;
 
-        //This loops through the data returned from the getPlayers method
-        //gets the first and last names, concats them nicely and HashMaps the full name
-        //and adds it back to an arraylist. I though it was the easiest and maximized code reuse for me
-        //Probably questionable
         for (int i = 0; i < results.size(); ++i) {
             map = (HashMap)results.get(i);
             f_name = map.get("f_name").toString();
