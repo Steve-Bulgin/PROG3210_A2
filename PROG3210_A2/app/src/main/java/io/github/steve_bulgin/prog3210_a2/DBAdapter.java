@@ -10,9 +10,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import android.util.Log;
 
 
 public class DBAdapter extends SimpleAdapter {
+
     /**
      * Constructor
      *
@@ -42,13 +44,17 @@ public class DBAdapter extends SimpleAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
+
         View item = super.getView(position,convertView,parent);
 
-//        if (results.get(position).get("full_name").toString().equals("Delete All")) {
-//            parent.setBackgroundResource(R.drawable.redbutton);
-//        }
+        
 
-
+        if (results.get(position).get("full_name").toString().equals("Delete All") && results.get(position).get("l_name") == null) {
+            item.setBackgroundResource(R.drawable.redbutton);    
+        }
+        else {
+            item.setBackgroundResource(R.drawable.buttonshape);
+        }
         return item;
     }
 }

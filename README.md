@@ -49,10 +49,15 @@ Things to do
 
 - Added Delete and updated Main
 
+# 2017.01.04
+
+- Added in custom adapter for player listviews
+
 ## Features to add
 
 - ~~Swipe views~~
 - ~~Delete One/Add from db~~
+- ~~Custom listview adapter for handling player lists~~
 - Slide animation on swipe
 
 

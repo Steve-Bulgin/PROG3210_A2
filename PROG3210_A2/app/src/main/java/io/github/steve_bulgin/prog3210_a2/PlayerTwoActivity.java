@@ -120,7 +120,7 @@ public class PlayerTwoActivity extends Activity {
         String[] from = {"full_name"};
         int[] to = {R.id.lblListName};
 
-        SimpleAdapter ad = new SimpleAdapter(this, fullname,resource,from,to);
+        DBAdapter ad = new DBAdapter(this, fullname,resource,from,to);
         player_two_items.setAdapter(ad);
     }
 

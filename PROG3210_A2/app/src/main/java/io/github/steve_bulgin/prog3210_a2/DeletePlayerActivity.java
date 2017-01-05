@@ -86,7 +86,7 @@ public class DeletePlayerActivity extends AppCompatActivity  {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 items = (HashMap) delete_player_items.getItemAtPosition(position);
-                if (items.get("full_name").toString().equals("Delete All")) {
+                if (items.get("full_name").toString().equals("Delete All") && items.get("l_name") == null) {
                     AlertDialog.Builder alertall = new AlertDialog.Builder(DeletePlayerActivity.this);
                     alertall.setMessage("Do you really want to delete all names?").setCancelable(false)
                             .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -169,4 +169,5 @@ public class DeletePlayerActivity extends AppCompatActivity  {
         DBAdapter ad = new DBAdapter(this, fullname,resource,from,to);
         delete_player_items.setAdapter(ad);
     }
+
 }
