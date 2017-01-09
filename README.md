@@ -58,6 +58,7 @@ Things to do
 - ~~Swipe views~~
 - ~~Delete One/Add from db~~
 - ~~Custom listview adapter for handling player lists~~
+- Json webservice connected to MySQL
 - Slide animation on swipe
 
 
