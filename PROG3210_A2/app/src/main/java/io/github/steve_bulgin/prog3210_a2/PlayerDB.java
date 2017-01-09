@@ -42,6 +42,22 @@ public class PlayerDB {
             db.execSQL("INSERT INTO tbl_players(l_name,f_name,wins,losses,ties) VALUES('Travis','Devon',6,2,8)");
             db.execSQL("INSERT INTO tbl_players(l_name,f_name,wins,losses,ties) VALUES('Smoak','Justin',7,3,0)");
             db.execSQL("INSERT INTO tbl_players(l_name,f_name,wins,losses,ties) VALUES('Colon','Bartolo',2,7,4)");
+
+            //Holds values that have been changed locally since last sync with MySQL
+            db.execSQL("CREATE TABLE tbl_alterations (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+                    " l_name VARCHAR NOT NULL, f_name VARCHAR NOT NULL, wins INTEGER, " +
+                    " losses INTEGER, ties INTEGER, status INTEGER NOT NULL, " +
+                    " FOREIGN KEY(tbl_status) REFERENCES artist(s_id))");
+
+            //Holds status values as a contraint for the alterations table
+            db.execSQL("CREATE TABLE tbl_status (s_id INTEGER PRIMARY KEY NOT NULL," +
+                    " s_status VARCHAR NOT NULL)");
+
+            //Options for status
+            db.execSQL("INSERT INTO tbl_status(s_id,s_status) VALUES(1, 'p_delete')");
+            db.execSQL("INSERT INTO tbl_status(s_id,s_status) VALUES(2, 'p_add')");
+            db.execSQL("INSERT INTO tbl_status(s_id,s_status) VALUES(3,'p_score_update')");
+            db.execSQL("INSERT INTO tbl_status(s_id,s_status) VALUES(4,'p_add_score_update')");
         }
 
         @Override
@@ -49,6 +65,14 @@ public class PlayerDB {
                               int oldVersion, int newVersion) {
 
             db.execSQL("DROP TABLE \"tbl_players\"");
+            Log.d("Player list", "Upgrading db from version "
+                    + oldVersion + " to " + newVersion);
+
+            db.execSQL("DROP TABLE \"tbl_alterations\"");
+            Log.d("Player list", "Upgrading db from version "
+                    + oldVersion + " to " + newVersion);
+
+            db.execSQL("DROP TABLE \"tbl_status\"");
             Log.d("Player list", "Upgrading db from version "
                     + oldVersion + " to " + newVersion);
 
