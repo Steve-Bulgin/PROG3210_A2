@@ -53,6 +53,7 @@ public class DeletePlayerActivity extends AppCompatActivity  {
                         if ((x1 - x2) < -150) {
                             Intent intent = new Intent(DeletePlayerActivity.this, MainActivity.class);
                             startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         }
                         break;
                 }
@@ -73,6 +74,7 @@ public class DeletePlayerActivity extends AppCompatActivity  {
                         if ((x1 - x2) < -150) {
                             Intent intent = new Intent(DeletePlayerActivity.this, MainActivity.class);
                             startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         }
                         break;
                 }

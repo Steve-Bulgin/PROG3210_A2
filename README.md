@@ -58,7 +58,7 @@ Things to do
 - ~~Swipe views~~
 - ~~Delete One/Add from db~~
 - ~~Custom listview adapter for handling player lists~~
-- Slide animation on swipe
+- ~~Slide animation on swipe~~
 
 
 ### Otherwise good!!!!!
