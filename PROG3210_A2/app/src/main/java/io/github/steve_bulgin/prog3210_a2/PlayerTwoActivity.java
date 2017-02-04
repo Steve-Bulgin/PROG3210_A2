@@ -54,6 +54,7 @@ public class PlayerTwoActivity extends Activity {
                         if ((x1 - x2) < -150) {
                             Intent intent = new Intent(PlayerTwoActivity.this, MainActivity.class);
                             startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         }
                         break;
                 }
@@ -74,6 +75,7 @@ public class PlayerTwoActivity extends Activity {
                         if ((x1 - x2) < -150) {
                             Intent intent = new Intent(PlayerTwoActivity.this, MainActivity.class);
                             startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         }
                         break;
                 }

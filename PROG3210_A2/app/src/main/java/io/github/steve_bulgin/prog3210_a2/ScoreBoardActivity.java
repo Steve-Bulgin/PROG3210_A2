@@ -58,18 +58,22 @@ public class ScoreBoardActivity extends Activity implements View.OnClickListener
                                 if (senderStr.equals("MainActivity")) {
                                     Intent intent = new Intent(ScoreBoardActivity.this, MainActivity.class);
                                     startActivity(intent);
+                                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                                 }
                                 else if (senderStr.equals("GameActivity")) {
                                     Intent intent = new Intent(ScoreBoardActivity.this, GameActivity.class);
                                     startActivity(intent);
+                                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                                 }
                                 else if (senderStr.equals("AddPlayerActivity")) {
                                     Intent intent = new Intent(ScoreBoardActivity.this, MainActivity.class);
                                     startActivity(intent);
+                                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                                 }
                                 else {
                                     Intent intent = new Intent(ScoreBoardActivity.this, MainActivity.class);
                                     startActivity(intent);
+                                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                                 }
                             }
 
@@ -96,18 +100,22 @@ public class ScoreBoardActivity extends Activity implements View.OnClickListener
                                 if (senderStr.equals("MainActivity")) {
                                     Intent intent = new Intent(ScoreBoardActivity.this, MainActivity.class);
                                     startActivity(intent);
+                                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                                 }
                                 else if (senderStr.equals("GameActivity")) {
                                     Intent intent = new Intent(ScoreBoardActivity.this, GameActivity.class);
                                     startActivity(intent);
+                                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                                 }
                                 else if (senderStr.equals("AddPlayerActivity")) {
                                     Intent intent = new Intent(ScoreBoardActivity.this, MainActivity.class);
                                     startActivity(intent);
+                                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                                 }
                                 else {
                                     Intent intent = new Intent(ScoreBoardActivity.this, MainActivity.class);
                                     startActivity(intent);
+                                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                                 }
                             }
 

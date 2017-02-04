@@ -48,6 +48,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
                         if ((x1 - x2) < -150) {
                             Intent intent = new Intent(GameActivity.this, MainActivity.class);
                             startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         }
                         break;
                 }
@@ -98,6 +99,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
                         if ((x1 - x2) < -150) {
                             Intent intent = new Intent(GameActivity.this, MainActivity.class);
                             startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         }
                         break;
                 }
@@ -117,6 +119,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
                         if ((x1 - x2) < -150) {
                             Intent intent = new Intent(GameActivity.this, MainActivity.class);
                             startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         }
                         break;
                 }
@@ -136,6 +139,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
                         if ((x1 - x2) < -150) {
                             Intent intent = new Intent(GameActivity.this, MainActivity.class);
                             startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         }
                         break;
                 }
