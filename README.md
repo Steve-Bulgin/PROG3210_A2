@@ -59,6 +59,8 @@ Things to do
 - ~~Delete One/Add from db~~
 - ~~Custom listview adapter for handling player lists~~
 - ~~Slide animation on swipe~~
+- Mark main menu buttons if player selectected
+  - Maybe use local storage so that choices persist?
 
 
 ### Otherwise good!!!!!
