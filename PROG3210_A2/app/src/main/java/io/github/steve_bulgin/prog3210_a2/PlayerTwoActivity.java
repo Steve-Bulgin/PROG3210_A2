@@ -2,6 +2,8 @@
  * Purpose: Handles logic for player 2
  * Revision History
  * 		Steven Bulgin, 2016.11.09: Created
+ *      Steven Bulgin, 2017.02.25: Added onBackPressed to relaunch main activity on
+ *                              pressing of the back android button
  */
 
 package io.github.steve_bulgin.prog3210_a2;
@@ -91,6 +93,15 @@ public class PlayerTwoActivity extends Activity {
                 namePasser();
             }
         });
+    }
+
+    //OnBackpress fire the main oncreate
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(PlayerTwoActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
 

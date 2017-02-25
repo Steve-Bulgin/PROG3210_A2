@@ -45,8 +45,7 @@
         android:textColor="#FFFFFF"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:background="@drawable/buttonshape"
-        android:text="@string/player1" />
+        />
 
     <Button
         android:id="@+id/player2"

@@ -3,6 +3,8 @@
  * Revision History
  * 		Steven Bulgin, 2016.11.09: Added click events for buttons
  *      Steven Bulgin, 2016.11.12: Call PlayerdB in on create for testing
+ *      Steven Bulgin, 2017.02.25: Added in green btns if player is selected on main 
+ *                              else standard button
  */
 
 package io.github.steve_bulgin.prog3210_a2;
@@ -45,6 +47,27 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         btnPlayerTwo.setOnClickListener(this);
         btnPlayerNew.setOnClickListener(this);
         btnDeletePlayers.setOnClickListener(this);
+
+        //Set player button background
+        //Player 1
+        if (((GameApplication) this.getApplication()).getFull_name_one() != null) {
+            btnPlayerOne.setBackgroundResource(R.drawable.greenbutton);
+            btnPlayerOne.setText("player 1: " + ((GameApplication) this.getApplication()).getFull_name_one());
+        }
+        else {
+            btnPlayerOne.setBackgroundResource(R.drawable.buttonshape);
+            btnPlayerOne.setText("player 1");
+        }
+
+        //Player 2
+        if (((GameApplication) this.getApplication()).getFull_name_two() != null) {
+            btnPlayerTwo.setBackgroundResource(R.drawable.greenbutton);
+            btnPlayerTwo.setText("player 2: " + ((GameApplication) this.getApplication()).getFull_name_two());
+        }
+        else {
+            btnPlayerTwo.setBackgroundResource(R.drawable.buttonshape);
+            btnPlayerTwo.setText("player 2");
+        }
     }
 
     @Override
