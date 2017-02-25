@@ -53,13 +53,17 @@ Things to do
 
 - Added in custom adapter for player listviews
 
+# 2017.02.25
+
+- Added Green buttons on main if player is selected with label that includes name else standard button
+
 ## Features to add
 
 - ~~Swipe views~~
 - ~~Delete One/Add from db~~
 - ~~Custom listview adapter for handling player lists~~
 - ~~Slide animation on swipe~~
-- Mark main menu buttons if player selectected
+- ~~Mark main menu buttons if player selectected~~
   - Maybe use local storage so that choices persist?
 
 
