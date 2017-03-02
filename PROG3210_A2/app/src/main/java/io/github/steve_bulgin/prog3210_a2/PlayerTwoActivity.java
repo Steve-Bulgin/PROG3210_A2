@@ -133,7 +133,7 @@ public class PlayerTwoActivity extends Activity {
         String[] from = {"full_name"};
         int[] to = {R.id.lblListName};
 
-        DBAdapter ad = new DBAdapter(this, fullname,resource,from,to);
+        DBAdapter ad = new DBAdapter(this,((GameApplication) this.getApplication()).getFull_name_two(), fullname,resource,from,to);
         player_two_items.setAdapter(ad);
     }
 
