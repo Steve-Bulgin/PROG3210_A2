@@ -142,7 +142,7 @@ public class PlayerOneActivity extends Activity {
         int resource = R.layout.player_list;
         String[] from = {"full_name"};
         int[] to = {R.id.lblListName};
-
+        player_one_items.setAdapter(ad);
         ad = new DBAdapter(this, ((GameApplication) this.getApplication()).getFull_name_one(), fullname,resource,from,to);
     }
 
