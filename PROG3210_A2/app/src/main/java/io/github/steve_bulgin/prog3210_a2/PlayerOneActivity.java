@@ -37,6 +37,7 @@ public class PlayerOneActivity extends Activity {
     private String fullname;
     private HashMap items;
     private float x1, x2;
+    private DBAdapter ad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,11 +95,17 @@ public class PlayerOneActivity extends Activity {
         player_one_items.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                view.setBackgroundResource(R.drawable.greenbutton);
                 items = (HashMap) player_one_items.getItemAtPosition(position);
                 fullname = items.get("full_name").toString();
+                Log.d("On Click test", fullname);
                 namePasser();
+
+
             }
         });
+        ad.notifyDataSetChanged();
     }
 
     //OnBackpress fire the main oncreate
@@ -143,7 +150,7 @@ public class PlayerOneActivity extends Activity {
         String[] from = {"full_name"};
         int[] to = {R.id.lblListName};
 
-        DBAdapter ad = new DBAdapter(this, fullname,resource,from,to);
+        ad = new DBAdapter(this, ((GameApplication) this.getApplication()).getFull_name_one(), fullname,resource,from,to);
         player_one_items.setAdapter(ad);
     }
 
