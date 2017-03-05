@@ -1,4 +1,7 @@
 # PROG3210_A2
+
+![screencap](/screencaps/main.png)
+
 Start point for A2
 
 2016.11.06
@@ -57,6 +60,10 @@ Things to do
 
 - Added Green buttons on main if player is selected with label that includes name else standard button
 
+# 2017.03.05
+
+- Added green btns on player select list will add a marker / deactivate player if already selected. Doesn't work exactly as wanted. Will need to swap out the simple adapter for something else.
+
 ## Features to add
 
 - ~~Swipe views~~
@@ -71,5 +78,5 @@ Things to do
 
 
 
-![screencap](/screencaps/main.png)
+
 

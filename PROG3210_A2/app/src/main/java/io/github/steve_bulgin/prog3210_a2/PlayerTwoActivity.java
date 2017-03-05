@@ -31,6 +31,7 @@ public class PlayerTwoActivity extends Activity {
     private PlayerDB db;
     private ListView player_two_items;
     private HashMap items;
+    private DBAdapter ad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +92,7 @@ public class PlayerTwoActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 items = (HashMap) player_two_items.getItemAtPosition(position);
                 namePasser();
+                createList();
             }
         });
     }
@@ -133,7 +135,7 @@ public class PlayerTwoActivity extends Activity {
         String[] from = {"full_name"};
         int[] to = {R.id.lblListName};
 
-        DBAdapter ad = new DBAdapter(this, fullname,resource,from,to);
+        ad = new DBAdapter(this, ((GameApplication) this.getApplication()).getFull_name_two(), fullname,resource,from,to);
         player_two_items.setAdapter(ad);
     }
 

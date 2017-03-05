@@ -37,6 +37,7 @@ public class PlayerOneActivity extends Activity {
     private String fullname;
     private HashMap items;
     private float x1, x2;
+    private DBAdapter ad; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +98,7 @@ public class PlayerOneActivity extends Activity {
                 items = (HashMap) player_one_items.getItemAtPosition(position);
                 fullname = items.get("full_name").toString();
                 namePasser();
+                createList();
             }
         });
     }
@@ -143,7 +145,7 @@ public class PlayerOneActivity extends Activity {
         String[] from = {"full_name"};
         int[] to = {R.id.lblListName};
 
-        DBAdapter ad = new DBAdapter(this, fullname,resource,from,to);
+        ad = new DBAdapter(this, ((GameApplication) this.getApplication()).getFull_name_one(), fullname,resource,from,to);
         player_one_items.setAdapter(ad);
     }
 
@@ -170,6 +172,4 @@ public class PlayerOneActivity extends Activity {
             }
         }
     }
-
-
 }

@@ -33,11 +33,16 @@ public class DBAdapter extends SimpleAdapter {
     LayoutInflater inflater;
     private ArrayList<HashMap<String, String>> results;
     private Context context;
+    private String full_name;
+    private static final String activity1_string = "io.github.steve_bulgin.prog3210_a2.PlayerOneActivity";
+    private static final String activity2_string = "io.github.steve_bulgin.prog3210_a2.PlayerTwoActivity";
 
-    public DBAdapter(Context context, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
+
+    public DBAdapter(Context context, String full_name, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
         super(context, data, resource, from, to);
 
         this.context = context;
+        this.full_name = full_name;
         this.results = (ArrayList<HashMap<String, String>>) data;
         inflater.from(context);
     }
@@ -53,7 +58,18 @@ public class DBAdapter extends SimpleAdapter {
             item.setBackgroundResource(R.drawable.redbutton);    
         }
         else {
-            item.setBackgroundResource(R.drawable.buttonshape);
+            if (context.getClass().getName().equals(activity1_string) && results.get(position).get("full_name")
+                    .toString().equals(full_name)) {
+                item.setBackgroundResource(R.drawable.greenbutton);
+                Log.d("Context test", full_name);
+            }
+            else if (context.getClass().getName().equals(activity2_string) && results.get(position).get("full_name")
+                    .toString().equals(full_name)) {
+                item.setBackgroundResource(R.drawable.greenbutton);
+            }
+            else {
+                item.setBackgroundResource(R.drawable.buttonshape);
+            }
         }
         return item;
     }

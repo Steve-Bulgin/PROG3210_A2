@@ -168,7 +168,7 @@ public class DeletePlayerActivity extends AppCompatActivity  {
         int[] to = {R.id.lblListName};
 
         //SimpleAdapter ad = new SimpleAdapter(this, fullname,resource,from,to);
-        DBAdapter ad = new DBAdapter(this, fullname,resource,from,to);
+        DBAdapter ad = new DBAdapter(this, null, fullname,resource,from,to);
         delete_player_items.setAdapter(ad);
     }
 

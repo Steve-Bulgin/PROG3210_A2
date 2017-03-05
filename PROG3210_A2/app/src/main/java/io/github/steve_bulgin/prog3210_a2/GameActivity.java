@@ -207,10 +207,10 @@ public class GameActivity extends Activity implements View.OnClickListener {
         if (!player1picked && !player2picked) {
             Toast.makeText(getApplicationContext(), "Please Pick a set of players", Toast.LENGTH_LONG).show();
         }
-        if (!player1picked) {
+        else if (!player1picked) {
             Toast.makeText(getApplicationContext(), "Please Pick a Player 1", Toast.LENGTH_LONG).show();
         }
-        if (!player2picked) {
+        else if (!player2picked) {
             Toast.makeText(getApplicationContext(), "Please Pick a Player 2", Toast.LENGTH_LONG).show();
         }
     }
